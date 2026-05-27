@@ -15,7 +15,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-black shadow-[0_8px_24px_rgba(0,0,0,0.55)]">
       <div className="mx-auto grid h-[6.5rem] max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 lg:px-8">
         <BrandLogo className="justify-self-start" />
 
@@ -48,7 +48,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-zinc-300 lg:hidden"
+          className="justify-self-end flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-zinc-300 lg:hidden"
           aria-expanded={open}
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
@@ -64,6 +64,7 @@ export function SiteHeader() {
           )}
         </button>
       </div>
+      <div className="pointer-events-none h-4 bg-gradient-to-b from-black to-transparent" aria-hidden />
 
       {open && (
         <div className="border-t border-white/5 bg-black/95 px-4 py-4 lg:hidden">

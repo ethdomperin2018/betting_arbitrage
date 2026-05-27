@@ -14,8 +14,8 @@ export function SiteFooter() {
     <footer className="border-t border-white/[0.06] bg-black">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          <div>
-            <BrandLogo size="lg" />
+          <div className="text-center md:text-left">
+            <BrandLogo size="lg" className="mx-auto md:mx-0" />
             <p className="mt-3 max-w-xs text-sm text-zinc-600">
               Private arbitrage & +EV tooling for serious bettors. Not affiliated
               with any sportsbook.
