@@ -44,41 +44,40 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <div></div>
-    // <section
-    //   id="how-it-works"
-    //   className="relative border-t border-white/[0.06] bg-[var(--surface)] py-24 sm:py-32"
-    // >
-    //   <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    //     <SectionEyebrow>Three steps to profit</SectionEyebrow>
-    //     <SectionTitle>How it works</SectionTitle>
+    <section
+      id="how-it-works"
+      className="relative border-t border-white/[0.06] bg-[var(--surface)] py-24 sm:py-32"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionEyebrow>Three steps to profit</SectionEyebrow>
+        <SectionTitle>How it works</SectionTitle>
 
-    //     <div className="relative mt-20 grid gap-12 md:grid-cols-3 md:gap-8">
-    //       <div
-    //         className="pointer-events-none absolute left-[16%] right-[16%] top-12 hidden h-px bg-gradient-to-r from-[var(--brand-red)]/0 via-[var(--brand-red)]/40 to-[var(--brand-red)]/0 md:block"
-    //         aria-hidden
-    //       />
-    //       {STEPS.map((s) => (
-    //         <div
-    //           key={s.n}
-    //           className="relative rounded-2xl border border-white/[0.06] bg-black/40 p-8 text-center backdrop-blur-sm md:text-left"
-    //         >
-    //           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-[var(--brand-red)] bg-[var(--brand-red)]/10 text-[var(--brand-red)] md:mx-0">
-    //             <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    //               {s.icon}
-    //             </svg>
-    //           </div>
-    //           <span className="font-display mt-6 block text-5xl font-bold text-[var(--brand-red)]/25">
-    //             {s.n}
-    //           </span>
-    //           <h3 className="font-display -mt-2 text-xl font-bold uppercase tracking-wide text-white">
-    //             {s.title}
-    //           </h3>
-    //           <p className="mt-3 text-sm leading-relaxed text-zinc-500">{s.desc}</p>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </div>
-    // </section>
+        <div className="relative mt-20 grid gap-12 md:grid-cols-3 md:gap-8">
+          <div
+            className="pointer-events-none absolute left-[16%] right-[16%] top-12 hidden h-px bg-gradient-to-r from-[var(--brand-red)]/0 via-[var(--brand-red)]/40 to-[var(--brand-red)]/0 md:block"
+            aria-hidden
+          />
+          {STEPS.map((s) => (
+            <div
+              key={s.n}
+              className="relative rounded-2xl border border-white/[0.06] bg-black/40 p-8 text-center backdrop-blur-sm md:text-left"
+            >
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-[var(--brand-red)] bg-[var(--brand-red)]/10 text-[var(--brand-red)] md:mx-0">
+                <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {s.icon}
+                </svg>
+              </div>
+              <span className="font-display mt-6 block text-5xl font-bold text-[var(--brand-red)]/25">
+                {s.n}
+              </span>
+              <h3 className="font-display -mt-2 text-xl font-bold uppercase tracking-wide text-white">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-500">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

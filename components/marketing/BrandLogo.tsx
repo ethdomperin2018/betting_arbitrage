@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type BrandLogoProps = {
   className?: string;
@@ -7,22 +8,25 @@ type BrandLogoProps = {
 };
 
 export function BrandLogo({ className = "", size = "default" }: BrandLogoProps) {
-  const iconSize = size === "lg" ? "h-11 w-11 text-xl" : "h-10 w-10 text-lg";
-  const textSize = size === "lg" ? "text-2xl" : "text-xl";
+  // Constrain width so the header doesn't push the logo toward the center.
+  const wrapperSize =
+    size === "lg" ? "h-20 w-[260px]" : "h-20 w-[220px]";
 
   return (
-    <Link href="/" className={`group flex items-center gap-3 ${className}`}>
-      <span
-        className={`relative flex ${iconSize} items-center justify-center overflow-hidden rounded-md bg-[var(--brand-red)] font-display font-bold italic text-white shadow-lg shadow-red-900/40 transition group-hover:scale-105`}
-      >
-        C
-        <span className="absolute inset-0 bg-gradient-to-br from-white/25 to-transparent" />
-      </span>
-      <span
-        className={`font-display ${textSize} font-bold italic uppercase tracking-wide`}
-      >
-        <span className="text-[var(--brand-red)]">CLUTCH</span>
-        <span className="text-white"> ODDS</span>
+    <Link
+      href="/"
+      className={`group inline-flex items-center ${className}`}
+      aria-label="Clutch Odds home"
+    >
+      <span className={`relative ${wrapperSize} transition group-hover:scale-[1.02]`}>
+        <Image
+          src="/logo.jpg"
+          alt="Clutch Odds"
+          fill
+          priority
+          sizes="(max-width: 640px) 220px, 260px"
+          className="object-contain"
+        />
       </span>
     </Link>
   );

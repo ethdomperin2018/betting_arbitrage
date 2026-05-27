@@ -16,10 +16,10 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <BrandLogo />
+      <div className="mx-auto grid h-[6.5rem] max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 lg:px-8">
+        <BrandLogo className="justify-self-start" />
 
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden justify-self-center items-center gap-10 lg:flex">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -31,7 +31,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-6 sm:flex">
+        <div className="hidden justify-self-end items-center gap-6 sm:flex">
           <Link
             href="/arbitrage"
             className="text-[11px] font-semibold uppercase tracking-[0.15em] text-zinc-300 transition hover:text-white"
