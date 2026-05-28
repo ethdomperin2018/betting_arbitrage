@@ -15,15 +15,6 @@ export const APP_NAV: AppNavItem[] = [
   { href: "/settings", label: "Settings" },
 ];
 
-export function isAppRoute(pathname: string): boolean {
-  if (pathname === "/arbitrage") return true;
-  return APP_NAV.some((item) => {
-    const key = item.match ?? item.href;
-    if (key === "/dashboard") return pathname === "/dashboard";
-    return pathname === key || pathname.startsWith(`${key}/`);
-  });
-}
-
 export function isNavActive(pathname: string, item: AppNavItem): boolean {
   const key = item.match ?? item.href;
   if (pathname === "/arbitrage" && key === "/opportunities") return true;
