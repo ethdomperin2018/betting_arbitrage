@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { ToolNavDropdown } from "@/components/app/ToolNavDropdown";
+import { APP_NAV } from "@/lib/app-nav";
 import { BrandLogo } from "./BrandLogo";
 
 const NAV = [
@@ -20,6 +22,7 @@ export function SiteHeader() {
         <BrandLogo className="justify-self-start" />
 
         <nav className="hidden justify-self-center items-center gap-10 lg:flex">
+          <ToolNavDropdown variant="marketing" />
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -32,12 +35,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden justify-self-end items-center gap-6 sm:flex">
-          <Link
-            href="/dashboard"
-            className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-300 transition hover:text-white"
-          >
-            Open app
-          </Link>
           <Link
             href="/login"
             className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-300 transition hover:text-white"
@@ -75,6 +72,20 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-white/5 bg-black/95 px-4 py-4 lg:hidden">
           <nav className="flex flex-col gap-3">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500">
+              Tool
+            </p>
+            {APP_NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="py-1.5 text-sm font-medium text-zinc-300"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <div className="my-2 border-t border-white/10" />
             {NAV.map((item) => (
               <Link
                 key={item.href}

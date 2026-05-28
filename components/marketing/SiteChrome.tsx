@@ -5,7 +5,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
     <div className="marketing-page flex min-h-full flex-col bg-black text-white selection:bg-[var(--brand-red)]/30 selection:text-white">
       <SiteHeader />
-      <main className="flex-1">{children}</main>
+      <main className="flex min-h-0 flex-1 flex-col">{children}</main>
       <SiteFooter />
     </div>
   );
