@@ -1,19 +1,12 @@
 import { BookLogo } from "@/components/BookLogo";
-import { getBookBrand } from "@/lib/bookmakerBranding";
-import { BOOK_FAVICON_DOMAINS } from "@/lib/bookmakerLogos";
 import { AppPageHeader } from "@/components/app/AppPageHeader";
-
-const DISPLAY_NAMES: Record<string, string> = {
-  williamhill_us: "Caesars (William Hill US)",
-  betonlineag: "BetOnline.ag",
-  mybookieag: "MyBookie.ag",
-  unibet_us: "Unibet US",
-  pointsbetus: "PointsBet US",
-  foxbet: "Fox Bet",
-};
+import {
+  TRACKED_BOOKMAKER_KEYS,
+  getBookDisplayName,
+} from "@/lib/bookmakerDisplay";
 
 export default function BookmakersPage() {
-  const keys = Object.keys(BOOK_FAVICON_DOMAINS).sort();
+  const keys = TRACKED_BOOKMAKER_KEYS;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:py-10">
@@ -23,7 +16,7 @@ export default function BookmakersPage() {
       />
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {keys.map((key) => {
-          const title = DISPLAY_NAMES[key] ?? getBookBrand(key, key).short;
+          const title = getBookDisplayName(key);
           return (
             <li
               key={key}

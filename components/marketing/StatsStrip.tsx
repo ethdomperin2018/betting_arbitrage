@@ -1,6 +1,8 @@
+import { TRACKED_BOOKMAKER_COUNT } from "@/lib/bookmakerDisplay";
+
 const STATS = [
   { value: "4", label: "Major leagues" },
-  { value: "8+", label: "US sportsbooks" },
+  { value: `${TRACKED_BOOKMAKER_COUNT}+`, label: "US sportsbooks" },
   { value: "Auto", label: "Scheduled refresh" },
   { value: "ROI %", label: "Stake split built-in" },
 ];

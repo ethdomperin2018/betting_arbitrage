@@ -1,4 +1,5 @@
 import { BookLogo } from "@/components/BookLogo";
+import { bookRef } from "@/lib/bookmakerDisplay";
 import { OpportunitiesPanelMock } from "./OpportunitiesMocks";
 
 const PNL_BARS = [38, 52, 45, 68, 58, 82, 74, 92, 88, 96, 85, 100];
@@ -9,6 +10,9 @@ export function ScanFeedMock() {
 }
 
 export function ArbDetailMock() {
+  const legA = bookRef("fanduel");
+  const legB = bookRef("fanatics");
+
   return (
     <div className="overflow-hidden rounded-lg border border-emerald-900/40 bg-gradient-to-br from-emerald-950/40 to-zinc-950 text-[11px]">
       <div className="border-b border-white/[0.06] px-3 py-2">
@@ -19,14 +23,14 @@ export function ArbDetailMock() {
       </div>
       <div className="space-y-2 px-3 py-3">
         <div className="flex items-center gap-2 rounded-md bg-black/40 px-2 py-2">
-          <BookLogo bookKey="fanduel" bookTitle="FanDuel" size={22} />
+          <BookLogo bookKey={legA.key} bookTitle={legA.title} size={22} />
           <div className="min-w-0 flex-1">
             <p className="text-zinc-400">Celtics ML</p>
             <p className="font-semibold text-emerald-400">+145 · $412</p>
           </div>
         </div>
         <div className="flex items-center gap-2 rounded-md bg-black/40 px-2 py-2">
-          <BookLogo bookKey="draftkings" bookTitle="DraftKings" size={22} />
+          <BookLogo bookKey={legB.key} bookTitle={legB.title} size={22} />
           <div className="min-w-0 flex-1">
             <p className="text-zinc-400">Mavericks ML</p>
             <p className="font-semibold text-emerald-400">-132 · $588</p>
@@ -146,7 +150,7 @@ export function TelegramAlertMock() {
           <br />
           <span className="text-[var(--profit-green)]">+6.32% ROI · $63.20 profit</span>
         </p>
-        <p className="mt-2 text-[9px] text-zinc-500">FanDuel +145 · DraftKings -132</p>
+        <p className="mt-2 text-[9px] text-zinc-500">FanDuel +145 · Fanatics -138</p>
       </div>
       <div className="rounded-lg border border-white/[0.06] bg-zinc-900/80 p-2 text-zinc-500">
         Tap to open scanner →

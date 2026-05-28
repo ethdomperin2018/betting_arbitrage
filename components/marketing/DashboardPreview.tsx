@@ -2,21 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { BookLogo } from "@/components/BookLogo";
 import { APP_NAV } from "@/lib/app-nav";
+import { bookRef } from "@/lib/bookmakerDisplay";
 import { OPPORTUNITY_ROWS } from "./mockups/opportunities-data";
 
 const MOBILE_CARDS = [
   {
     event: "DAL Mavericks @ BOS Celtics",
-    legA: { key: "fanduel", title: "FanDuel", odds: "+145" },
-    legB: { key: "draftkings", title: "DraftKings", odds: "-165" },
+    legA: { ...bookRef("fanduel"), odds: "+145" },
+    legB: { ...bookRef("fanatics"), odds: "-138" },
     profitPct: "+6.32%",
     profitUsd: "$63.20",
     hot: true,
   },
   {
     event: "LAL Lakers @ GSW Warriors",
-    legA: { key: "betmgm", title: "BetMGM", odds: "+120" },
-    legB: { key: "betrivers", title: "BetRivers", odds: "-140" },
+    legA: { ...bookRef("betonlineag"), odds: "+120" },
+    legB: { ...bookRef("betrivers"), odds: "-140" },
     profitPct: "+2.18%",
     profitUsd: "$21.80",
     hot: false,
