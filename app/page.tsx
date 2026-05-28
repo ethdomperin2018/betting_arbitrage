@@ -2,6 +2,7 @@ import { Hero } from "@/components/marketing/Hero";
 import { StatsStrip } from "@/components/marketing/StatsStrip";
 import { SportsbooksBar } from "@/components/marketing/SportsbooksBar";
 import { Features } from "@/components/marketing/Features";
+import { ProductVisuals } from "@/components/marketing/ProductVisuals";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { PricingSection } from "@/components/marketing/PricingSection";
 import { FaqSection } from "@/components/marketing/FaqSection";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <StatsStrip />
       <SportsbooksBar />
       <Features />
+      <ProductVisuals />
       <HowItWorks />
       <PricingSection />
       <FaqSection />

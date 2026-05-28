@@ -67,8 +67,8 @@ body {
 .btn-primary {
   background: linear-gradient(180deg, #ff3333 0%, var(--brand-red) 100%);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.15) inset,
-    0 4px 24px -4px rgba(255, 30, 30, 0.6);
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 4px 16px -8px rgba(255, 30, 30, 0.45);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -76,19 +76,15 @@ body {
 }
 
 .btn-primary:hover {
-  filter: brightness(1.08);
+  filter: brightness(1.04);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.2) inset,
-    0 8px 32px -4px rgba(255, 30, 30, 0.75);
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 8px 22px -10px rgba(255, 30, 30, 0.55);
   transform: translateY(-1px);
 }
 
 .card-feature {
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.04) 0%,
-    rgba(255, 255, 255, 0) 40%
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition:
     border-color 0.25s ease,
@@ -97,9 +93,9 @@ body {
 }
 
 .card-feature:hover {
-  border-color: rgba(255, 30, 30, 0.35);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -24px rgba(255, 30, 30, 0.25);
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -24px rgba(0, 0, 0, 0.55);
 }
 
 @keyframes marquee {

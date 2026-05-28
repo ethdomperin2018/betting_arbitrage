@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { MockFrame } from "./MockFrame";
+import { ScanFeedMock, BetLogMock } from "./mockups/ProductMockups";
 import { SectionEyebrow, SectionTitle } from "./marketing-ui";
 
 const FEATURES = [
@@ -66,11 +69,19 @@ export function Features() {
           noise of a public tout service.
         </p>
 
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <MockFrame url="clutchodds.com/arbitrage">
+            <ScanFeedMock />
+          </MockFrame>
+          <MockFrame url="clutchodds.com/arbitrage">
+            <BetLogMock />
+          </MockFrame>
+        </div>
+
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {FEATURES.map((f) => (
             <article key={f.title} className="card-feature group relative rounded-xl p-6 sm:p-7">
-              <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--brand-red)]/60 to-transparent opacity-0 transition group-hover:opacity-100" />
-              <span className="inline-flex rounded-lg border border-[var(--brand-red)]/20 bg-[var(--brand-red)]/10 p-3 text-[var(--brand-red)]">
+              <span className="inline-flex rounded-lg border border-white/10 bg-zinc-900 p-3 text-[var(--brand-red)]">
                 <svg
                   className="h-7 w-7"
                   fill="none"
@@ -80,13 +91,22 @@ export function Features() {
                   {f.icon}
                 </svg>
               </span>
-              <h3 className="font-display mt-5 text-lg font-bold uppercase tracking-wide text-white">
+              <h3 className="font-display mt-5 text-lg font-semibold tracking-wide text-white">
                 {f.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-zinc-500">{f.desc}</p>
             </article>
           ))}
         </div>
+
+        <p className="mt-10 text-center">
+          <Link
+            href="/arbitrage"
+            className="text-sm font-bold uppercase tracking-wide text-[var(--brand-red)] transition hover:text-white"
+          >
+            Try the live scanner →
+          </Link>
+        </p>
       </div>
     </section>
   );

@@ -59,7 +59,7 @@ export function Hero() {
               Beat the books
             </p>
 
-            <h1 className="font-display mt-6 text-[2.35rem] font-bold uppercase italic leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
+            <h1 className="font-display mt-6 text-[2.2rem] font-semibold leading-[1.04] tracking-tight text-white sm:text-5xl lg:text-[3.2rem]">
               Find{" "}
               <span className="text-[var(--brand-red)]">+EV and arbitrage</span>{" "}
               opportunities in real time
@@ -71,10 +71,10 @@ export function Hero() {
               before the market corrects.
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-4 sm:gap-5">
+            <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link
                 href="/arbitrage"
-                className="btn-primary inline-flex items-center gap-2 rounded-md px-7 py-4 text-sm font-bold uppercase tracking-wide text-white"
+                className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-white"
               >
                 Start free trial
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,21 +83,21 @@ export function Hero() {
               </Link>
               <Link
                 href="#pricing"
-                className="group inline-flex items-center gap-1 text-sm font-bold uppercase tracking-wide text-white transition hover:text-[var(--brand-red)]"
+                className="group inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-[0.12em] text-zinc-200 transition hover:text-white"
               >
                 View pricing
                 <span className="transition group-hover:translate-x-0.5">→</span>
               </Link>
             </div>
 
-            <ul className="mt-14 grid gap-8 border-t border-white/[0.06] pt-10 sm:grid-cols-3 sm:gap-6">
+            <ul className="mt-14 grid gap-6 border-t border-white/[0.06] pt-8 sm:grid-cols-3 sm:gap-5">
               {TRUST.map((item) => (
                 <li key={item.title} className="flex gap-3 sm:flex-col sm:gap-2">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--brand-red)]/25 bg-[var(--brand-red)]/10 text-[var(--brand-red)]">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-zinc-900 text-[var(--brand-red)]">
                     {item.icon}
                   </span>
                   <div>
-                    <p className="font-display text-sm font-bold uppercase tracking-wide text-white">
+                    <p className="font-display text-sm font-semibold tracking-wide text-white">
                       {item.title}
                     </p>
                     <p className="mt-1 text-xs text-zinc-500">{item.desc}</p>

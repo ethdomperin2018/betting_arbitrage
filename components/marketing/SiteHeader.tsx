@@ -16,7 +16,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-black shadow-[0_8px_24px_rgba(0,0,0,0.55)]">
-      <div className="mx-auto grid h-[6.5rem] max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto grid h-[5.5rem] max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 lg:px-8">
         <BrandLogo className="justify-self-start" />
 
         <nav className="hidden justify-self-center items-center gap-10 lg:flex">
@@ -24,7 +24,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[11px] font-semibold uppercase tracking-[0.15em] text-zinc-400 transition hover:text-white"
+              className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-400 transition hover:text-white"
             >
               {item.label}
             </Link>
@@ -33,14 +33,14 @@ export function SiteHeader() {
 
         <div className="hidden justify-self-end items-center gap-6 sm:flex">
           <Link
-            href="/arbitrage"
-            className="text-[11px] font-semibold uppercase tracking-[0.15em] text-zinc-300 transition hover:text-white"
+            href="/login"
+            className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-300 transition hover:text-white"
           >
             Log in
           </Link>
           <Link
-            href="/arbitrage"
-            className="btn-primary rounded-md px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white"
+            href="/signup"
+            className="btn-primary rounded-md px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white"
           >
             Sign up
           </Link>
@@ -80,11 +80,11 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link
-              href="/arbitrage"
+              href="/signup"
               className="btn-primary mt-2 rounded-md py-3 text-center text-xs font-bold uppercase tracking-wider text-white"
               onClick={() => setOpen(false)}
             >
-              Open app
+              Sign up
             </Link>
           </nav>
         </div>

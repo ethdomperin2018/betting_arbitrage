@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export function SectionEyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="text-center text-xs font-bold uppercase tracking-[0.25em] text-[var(--brand-red)]">
+    <p className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-red)]/90">
       {children}
     </p>
   );
@@ -17,7 +17,7 @@ export function SectionTitle({
 }) {
   return (
     <h2
-      className={`font-display mt-3 text-center text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl ${className}`}
+      className={`font-display mt-3 text-center text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.85rem] ${className}`}
     >
       {children}
     </h2>
