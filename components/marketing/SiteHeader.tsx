@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ToolNavDropdown } from "@/components/app/ToolNavDropdown";
-import { APP_NAV } from "@/lib/app-nav";
+import { APP_NAV, isAppRoute } from "@/lib/app-nav";
 import { BrandLogo } from "./BrandLogo";
 
 const NAV = [
@@ -15,6 +16,8 @@ const NAV = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const inApp = isAppRoute(pathname);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-black shadow-[0_8px_24px_rgba(0,0,0,0.55)]">
@@ -49,27 +52,29 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        <button
-          type="button"
-          className="justify-self-end flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-zinc-300 lg:hidden"
-          aria-expanded={open}
-          aria-label="Toggle menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? (
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
+        {!inApp && (
+          <button
+            type="button"
+            className="justify-self-end flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-zinc-300 lg:hidden"
+            aria-expanded={open}
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        )}
       </div>
       <div className="pointer-events-none h-4 bg-gradient-to-b from-black to-transparent" aria-hidden />
 
-      {open && (
+      {!inApp && open && (
         <div className="border-t border-white/5 bg-black/95 px-4 py-4 lg:hidden">
           <nav className="flex flex-col gap-3">
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500">

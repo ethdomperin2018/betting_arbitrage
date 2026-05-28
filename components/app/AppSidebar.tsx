@@ -28,16 +28,6 @@ export function AppSidebar({ onNavigate }: { onNavigate?: () => void }) {
           );
         })}
       </nav>
-
-      <div className="border-t border-white/[0.06] p-3">
-        <Link
-          href="/"
-          onClick={onNavigate}
-          className="block rounded-md px-3 py-2 text-xs text-zinc-500 transition hover:text-zinc-300"
-        >
-          ← Marketing site
-        </Link>
-      </div>
     </aside>
   );
 }
