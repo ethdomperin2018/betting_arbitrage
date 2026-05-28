@@ -14,7 +14,7 @@ const PLANS = [
       "Neon DB + manual bet log",
     ],
     cta: "Open app",
-    href: "/arbitrage",
+    href: "/opportunities",
   },
   {
     name: "Pro",
@@ -43,7 +43,8 @@ export function PricingSection() {
         <SectionEyebrow>Simple pricing</SectionEyebrow>
         <SectionTitle>Start finding arbs today</SectionTitle>
         <p className="mx-auto mt-4 max-w-xl text-center text-sm text-zinc-500">
-          Phase 1 is private — no billing while you prove edge in the real world.
+          Private beta — no billing while you validate the scanner and bet log on
+          real lines.
         </p>
 
         <div className="mx-auto mt-16 grid max-w-4xl gap-6 md:grid-cols-2">

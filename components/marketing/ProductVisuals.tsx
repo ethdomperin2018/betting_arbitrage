@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { MockFrame } from "./MockFrame";
 import {
   ArbDetailMock,
-  BetLogMock,
   FiltersMock,
   PnlDashboardMock,
   TelegramAlertMock,
@@ -38,33 +37,24 @@ export function ProductVisuals() {
         <SectionEyebrow>Platform preview</SectionEyebrow>
         <SectionTitle>See your edge in action</SectionTitle>
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-zinc-500 sm:text-base">
-          From live scans to stake sizing, bet logging, and PNL — everything you
-          need to validate real-world profit.
+          Drill into stake sizing, filters, alerts, and PNL — the workflows you use
+          after you spot an opportunity.
         </p>
 
-        <div className="mt-16 flex flex-col gap-10">
+        <div className="mt-16">
           <ShowcaseCard label="Track cumulative PNL and ROI from your manual bet log">
             <MockFrame url="clutchodds.com/arbitrage" glow>
               <PnlDashboardMock />
             </MockFrame>
           </ShowcaseCard>
-
-          <div className="grid gap-10 md:grid-cols-2">
-            <ShowcaseCard label="Sized legs with book, odds, and guaranteed profit">
-              <MockFrame url="clutchodds.com/arbitrage" glow={false}>
-                <ArbDetailMock />
-              </MockFrame>
-            </ShowcaseCard>
-
-            <ShowcaseCard label="Log every arb you place and mark results">
-              <MockFrame url="clutchodds.com/arbitrage" glow={false}>
-                <BetLogMock />
-              </MockFrame>
-            </ShowcaseCard>
-          </div>
         </div>
 
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <ShowcaseCard label="Sized legs with book, odds, and guaranteed profit">
+            <MockFrame url="clutchodds.com/arbitrage" glow={false}>
+              <ArbDetailMock />
+            </MockFrame>
+          </ShowcaseCard>
           <ShowcaseCard label="Instant Telegram alerts on new arbs">
             <MockFrame
               variant="phone"
@@ -89,7 +79,7 @@ export function ProductVisuals() {
               Open the scanner and run your first live snapshot.
             </p>
             <Link
-              href="/arbitrage"
+              href="/opportunities"
               className="btn-primary mt-4 inline-block rounded-md px-5 py-3 text-xs font-bold uppercase tracking-wide text-white"
             >
               Launch app

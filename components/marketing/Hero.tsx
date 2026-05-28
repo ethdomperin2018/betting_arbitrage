@@ -73,7 +73,7 @@ export function Hero() {
 
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link
-                href="/arbitrage"
+                href="/opportunities"
                 className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-white"
               >
                 Start free trial
@@ -107,7 +107,7 @@ export function Hero() {
             </ul>
           </div>
 
-          <div className="relative lg:min-h-[420px] lg:pl-4">
+          <div className="relative overflow-visible lg:min-h-[480px] lg:pl-0 xl:min-h-[520px]">
             <DashboardPreview />
           </div>
         </div>

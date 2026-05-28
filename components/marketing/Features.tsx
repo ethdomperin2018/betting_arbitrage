@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MockFrame } from "./MockFrame";
-import { ScanFeedMock, BetLogMock } from "./mockups/ProductMockups";
+import { OpportunitiesPanelMock } from "./mockups/OpportunitiesMocks";
 import { SectionEyebrow, SectionTitle } from "./marketing-ui";
 
 const FEATURES = [
@@ -69,12 +69,9 @@ export function Features() {
           noise of a public tout service.
         </p>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          <MockFrame url="clutchodds.com/arbitrage">
-            <ScanFeedMock />
-          </MockFrame>
-          <MockFrame url="clutchodds.com/arbitrage">
-            <BetLogMock />
+        <div className="mt-14">
+          <MockFrame url="clutchodds.com/arbitrage" glow>
+            <OpportunitiesPanelMock />
           </MockFrame>
         </div>
 
@@ -101,7 +98,7 @@ export function Features() {
 
         <p className="mt-10 text-center">
           <Link
-            href="/arbitrage"
+            href="/opportunities"
             className="text-sm font-bold uppercase tracking-wide text-[var(--brand-red)] transition hover:text-white"
           >
             Try the live scanner →

@@ -1,8 +1,8 @@
 import { MockFrame } from "./MockFrame";
+import { OpportunitiesPanelMock } from "./mockups/OpportunitiesMocks";
 import {
   ArbDetailMock,
   BetLogMock,
-  ScanFeedMock,
   TelegramAlertMock,
 } from "./mockups/ProductMockups";
 import { SectionEyebrow, SectionTitle } from "./marketing-ui";
@@ -12,7 +12,7 @@ const STEPS = [
     n: "01",
     title: "Connect odds",
     desc: "Live moneylines stream from The Odds API across NBA, NFL, NHL, and MLB. Auto-refresh keeps your board current without burning credits on every tick.",
-    visual: <ScanFeedMock />,
+    visual: <OpportunitiesPanelMock />,
     url: "clutchodds.com/arbitrage",
   },
   {

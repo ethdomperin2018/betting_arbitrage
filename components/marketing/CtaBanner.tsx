@@ -17,7 +17,7 @@ export function CtaBanner() {
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="/arbitrage"
+            href="/opportunities"
             className="btn-primary rounded-md px-8 py-4 text-sm font-bold uppercase tracking-wide text-white"
           >
             Launch scanner

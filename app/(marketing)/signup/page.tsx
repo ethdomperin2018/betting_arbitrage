@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function LoginPage() {
+export default function SignupPage() {
   return (
     <section className="relative flex min-h-[calc(100dvh-24rem)] items-center py-6 sm:py-8">
       <div
@@ -11,7 +11,7 @@ export default function LoginPage() {
         <div className="rounded-2xl border border-white/[0.08] bg-zinc-950/70 p-4 backdrop-blur-sm md:p-6">
           <div className="rounded-xl border border-white/[0.08] bg-zinc-900/50 p-6">
             <h1 className="font-display text-center text-3xl font-semibold tracking-tight text-white">
-              Log in to Clutch Odds
+              Create your account
             </h1>
             <button
               type="button"
@@ -49,6 +49,18 @@ export default function LoginPage() {
             <form className="space-y-4" action="#" method="post">
               <label className="block">
                 <span className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-zinc-400">
+                  Name
+                </span>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Your name"
+                  className="w-full rounded-md border border-white/10 bg-black/60 px-3 py-2.5 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[var(--brand-red)]"
+                />
+              </label>
+              <label className="block">
+                <span className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-zinc-400">
                   Email
                 </span>
                 <input
@@ -67,7 +79,7 @@ export default function LoginPage() {
                   type="password"
                   name="password"
                   required
-                  placeholder="••••••••"
+                  placeholder="Create password"
                   className="w-full rounded-md border border-white/10 bg-black/60 px-3 py-2.5 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[var(--brand-red)]"
                 />
               </label>
@@ -75,13 +87,18 @@ export default function LoginPage() {
                 type="submit"
                 className="btn-primary mt-2 w-full rounded-md px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white"
               >
-                Log in
+                Create account
               </button>
             </form>
             <p className="mt-4 text-center text-sm text-zinc-500">
-              Don&apos;t have an account?{" "}
-              <Link href="/signup" className="font-medium text-white hover:text-[var(--brand-red)]">
-                Sign up
+              Already have an account?{" "}
+              <Link href="/login" className="font-medium text-white hover:text-[var(--brand-red)]">
+                Log in
+              </Link>
+            </p>
+            <p className="mt-3 text-center text-sm text-zinc-500">
+              <Link href="/dashboard" className="text-[var(--brand-red)] hover:text-white">
+                Go to app →
               </Link>
             </p>
           </div>

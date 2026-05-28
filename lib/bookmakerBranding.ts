@@ -1,6 +1,6 @@
 /**
  * Non-official badge colors + short labels for The Odds API `bookmaker.key` values.
- * Drop PNG/SVG into `/public/bookmakers/{key}.svg` to override with real assets later.
+ * Real logos: `/public/bookmakers/{key}.{svg|png}` — run `npm run logos` (see `bookmakerLogos.ts`).
  */
 
 export interface BookBrand {
@@ -30,6 +30,7 @@ const BY_KEY: Record<string, Omit<BookBrand, "short"> & { short?: string }> = {
   unibet_us: { bg: "#147B45", fg: "#ffffff", short: "UB" },
   foxbet: { bg: "#1E40AF", fg: "#ffffff", short: "FX" },
   twinspires: { bg: "#0D9488", fg: "#ffffff", short: "TS" },
+  fanatics: { bg: "#0B1F3A", fg: "#ffffff", short: "FN" },
 };
 
 function initialsFromTitle(title: string): string {

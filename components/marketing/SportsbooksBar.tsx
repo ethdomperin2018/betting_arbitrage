@@ -1,4 +1,4 @@
-import { getBookBrand } from "@/lib/bookmakerBranding";
+import { BookLogo } from "@/components/BookLogo";
 
 const BOOKS = [
   { key: "fanduel", name: "FanDuel" },
@@ -12,15 +12,9 @@ const BOOKS = [
 ];
 
 function BookPill({ bookKey, name }: { bookKey: string; name: string }) {
-  const brand = getBookBrand(bookKey, name);
   return (
     <span className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2">
-      <span
-        className="flex h-7 w-7 items-center justify-center rounded-md text-[10px] font-bold"
-        style={{ backgroundColor: brand.bg, color: brand.fg }}
-      >
-        {brand.short}
-      </span>
+      <BookLogo bookKey={bookKey} bookTitle={name} size={28} />
       <span className="text-sm font-semibold tracking-wide text-zinc-300">
         {name}
       </span>
@@ -47,11 +41,6 @@ export function SportsbooksBar() {
           ))}
         </div>
       </div>
-      <p className="mt-6 text-center">
-        <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-red)]">
-          & more →
-        </span>
-      </p>
     </section>
   );
 }

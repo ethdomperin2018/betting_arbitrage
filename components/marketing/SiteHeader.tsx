@@ -33,6 +33,12 @@ export function SiteHeader() {
 
         <div className="hidden justify-self-end items-center gap-6 sm:flex">
           <Link
+            href="/dashboard"
+            className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-300 transition hover:text-white"
+          >
+            Open app
+          </Link>
+          <Link
             href="/login"
             className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-300 transition hover:text-white"
           >

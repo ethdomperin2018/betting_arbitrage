@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Rajdhani } from "next/font/google";
-import { SiteChrome } from "@/components/marketing/SiteChrome";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,9 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${rajdhani.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
-        <SiteChrome>{children}</SiteChrome>
-      </body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

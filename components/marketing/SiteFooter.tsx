@@ -6,7 +6,7 @@ const LINKS = [
   { label: "Pricing", href: "/#pricing" },
   { label: "How it works", href: "/#how-it-works" },
   { label: "FAQ", href: "/#faq" },
-  { label: "App", href: "/arbitrage" },
+  { label: "App", href: "/dashboard" },
 ];
 
 export function SiteFooter() {

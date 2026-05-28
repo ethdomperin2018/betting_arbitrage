@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
+import { useState } from "react";
 import { getBookBrand } from "@/lib/bookmakerBranding";
+import { getBookLogoPath } from "@/lib/bookmakerLogos";
 
 interface BookLogoProps {
   bookKey: string;
@@ -9,11 +12,6 @@ interface BookLogoProps {
   className?: string;
 }
 
-/**
- * Colored badge with initials (brand-adjacent colors, not official logos).
- * To use real mark assets later, add `/public/bookmakers/{bookKey}.svg` and
- * extend this component to prefer `<img>` with onError fallback to the badge.
- */
 export function BookLogo({
   bookKey,
   bookTitle,
@@ -21,6 +19,27 @@ export function BookLogo({
   className = "",
 }: BookLogoProps) {
   const brand = getBookBrand(bookKey, bookTitle);
+  const logoPath = getBookLogoPath(bookKey);
+  const [failed, setFailed] = useState(false);
+
+  if (logoPath && !failed) {
+    return (
+      <span
+        className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-md bg-white ring-1 ring-white/15 ${className}`}
+        style={{ width: size, height: size }}
+        title={bookTitle}
+      >
+        <Image
+          src={logoPath}
+          alt={`${bookTitle} logo`}
+          width={size}
+          height={size}
+          className="object-contain p-0.5"
+          onError={() => setFailed(true)}
+        />
+      </span>
+    );
+  }
 
   return (
     <span

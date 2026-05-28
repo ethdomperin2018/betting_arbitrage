@@ -12,7 +12,8 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "poll": "tsx scripts/poll-odds.ts",
-    "cleanup": "tsx scripts/cleanup.ts"
+    "cleanup": "tsx scripts/cleanup.ts",
+    "logos": "node scripts/fetch-bookmaker-logos.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",

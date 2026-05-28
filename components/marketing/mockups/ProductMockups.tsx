@@ -1,38 +1,11 @@
 import { BookLogo } from "@/components/BookLogo";
+import { OpportunitiesPanelMock } from "./OpportunitiesMocks";
 
 const PNL_BARS = [38, 52, 45, 68, 58, 82, 74, 92, 88, 96, 85, 100];
 
+/** @deprecated Use OpportunitiesPanelMock — kept as alias for imports */
 export function ScanFeedMock() {
-  const rows = [
-    { event: "DAL @ BOS", profit: "+6.32%", hot: true },
-    { event: "LAL @ GSW", profit: "+2.18%", hot: false },
-    { event: "NYK @ PHI", profit: "+1.94%", hot: false },
-  ];
-
-  return (
-    <div className="overflow-hidden rounded-lg border border-white/[0.08] bg-[#080808] text-[11px]">
-      <div className="flex items-center justify-between border-b border-white/[0.06] px-3 py-2">
-        <span className="font-display text-[10px] font-semibold uppercase tracking-widest text-zinc-400">
-          Live scan · 4 leagues
-        </span>
-        <span className="flex items-center gap-1 text-[9px] font-medium uppercase text-[var(--profit-green)]">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--profit-green)]" />
-          Scanning
-        </span>
-      </div>
-      <ul className="divide-y divide-white/[0.04]">
-        {rows.map((r) => (
-          <li
-            key={r.event}
-            className={`flex items-center justify-between px-3 py-2.5 ${r.hot ? "bg-[var(--brand-red)]/[0.08]" : ""}`}
-          >
-            <span className="font-medium text-zinc-200">{r.event}</span>
-            <span className="font-display font-bold text-[var(--profit-green)]">{r.profit}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <OpportunitiesPanelMock />;
 }
 
 export function ArbDetailMock() {

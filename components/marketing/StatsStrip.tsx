@@ -1,8 +1,8 @@
 const STATS = [
-  { value: "24/7", label: "Market scanning" },
   { value: "4", label: "Major leagues" },
-  { value: "15+", label: "Sportsbooks tracked" },
-  { value: "<1s", label: "Arb detection" },
+  { value: "8+", label: "US sportsbooks" },
+  { value: "Auto", label: "Scheduled refresh" },
+  { value: "ROI %", label: "Stake split built-in" },
 ];
 
 export function StatsStrip() {
