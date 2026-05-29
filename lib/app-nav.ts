@@ -9,6 +9,7 @@ export const APP_NAV: AppNavItem[] = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/opportunities", label: "Opportunities", match: "/opportunities" },
   { href: "/my-bets", label: "My Bets" },
+  { href: "/my-info", label: "My Info" },
   { href: "/bookmakers", label: "Bookmakers" },
   { href: "/alerts", label: "Alerts" },
   { href: "/analytics", label: "Analytics" },

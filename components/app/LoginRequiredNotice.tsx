@@ -1,11 +1,15 @@
 import Link from "next/link";
 
 type LoginRequiredNoticeProps = {
-  /** Short label for what is locked, e.g. "Opportunities" */
   feature: string;
+  returnTo?: string;
 };
 
-export function LoginRequiredNotice({ feature }: LoginRequiredNoticeProps) {
+export function LoginRequiredNotice({ feature, returnTo }: LoginRequiredNoticeProps) {
+  const loginHref = returnTo
+    ? `/login?next=${encodeURIComponent(returnTo)}`
+    : "/login";
+
   return (
     <div
       className="rounded-xl border border-amber-900/40 bg-amber-950/25 px-6 py-10 text-center sm:px-10"
@@ -31,12 +35,11 @@ export function LoginRequiredNotice({ feature }: LoginRequiredNoticeProps) {
         Log in to use {feature}
       </h2>
       <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-zinc-400">
-        Sign in to unlock this section. Account sign-in is not connected yet — use Log
-        in or Sign up to continue when we enable access.
+        Sign in to unlock this section. Demo mode accepts any username and password.
       </p>
       <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <Link
-          href="/login"
+          href={loginHref}
           className="btn-primary w-full rounded-md px-6 py-3 text-center text-xs font-bold uppercase tracking-wider text-white sm:w-auto"
         >
           Log in

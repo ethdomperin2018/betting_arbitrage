@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AppPageHeader } from "@/components/app/AppPageHeader";
+import { DemoSessionPanel } from "@/components/auth/DemoSessionPanel";
 
 export default function SettingsPage() {
   return (
@@ -9,6 +10,7 @@ export default function SettingsPage() {
         description="Server and scanner configuration for Phase 1."
       />
       <div className="space-y-4 text-sm text-zinc-400">
+        <DemoSessionPanel />
         <section className="rounded-xl border border-white/[0.08] bg-zinc-900/50 p-5">
           <h2 className="font-medium text-white">Environment</h2>
           <ul className="mt-3 list-inside list-disc space-y-1">

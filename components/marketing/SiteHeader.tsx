@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { HeaderAuthLinks } from "@/components/auth/HeaderAuthLinks";
 import { ToolNavDropdown } from "@/components/app/ToolNavDropdown";
 import { MobileNavPanel } from "@/components/navigation/MobileNavPanel";
 import { MARKETING_NAV } from "@/lib/marketing-nav";
@@ -29,18 +30,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden justify-self-end items-center gap-6 sm:flex">
-          <Link
-            href="/login"
-            className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-300 transition hover:text-white"
-          >
-            Log in
-          </Link>
-          <Link
-            href="/signup"
-            className="btn-primary rounded-md px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white"
-          >
-            Sign up
-          </Link>
+          <HeaderAuthLinks />
         </div>
 
         <button

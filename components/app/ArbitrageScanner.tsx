@@ -6,6 +6,11 @@ import { formatAmerican } from "@/lib/odds/format";
 import { arbRoiPercent } from "@/lib/odds/roi";
 import { BookLogo } from "@/components/BookLogo";
 import { ManualBetsPanel } from "@/components/ManualBetsPanel";
+import {
+  buildDemoOddsPayload,
+  demoLoadDelayMs,
+  OPPORTUNITIES_USE_DEMO_DATA,
+} from "@/lib/opportunities-demo";
 
 interface OddsPayload {
   fetchedAt?: string;
@@ -72,6 +77,14 @@ export function ArbitrageScanner({ showBetLog = false }: { showBetLog?: boolean 
 
       setLoading(true);
       try {
+        if (OPPORTUNITIES_USE_DEMO_DATA) {
+          await new Promise((r) => window.setTimeout(r, demoLoadDelayMs()));
+          if (ctrl.signal.aborted) return;
+          setData(buildDemoOddsPayload(stakeNum));
+          setLastUpdatedAt(Date.now());
+          return;
+        }
+
         const q = new URLSearchParams({ totalStake: String(stakeNum) });
         if (options?.light) q.set("light", "1");
         const res = await fetch(`/api/odds?${q}`, {
@@ -135,6 +148,13 @@ export function ArbitrageScanner({ showBetLog = false }: { showBetLog?: boolean 
 
   async function logBet(arb: ArbitrageOpportunity) {
     setLogBetStatus("Saving…");
+    if (OPPORTUNITIES_USE_DEMO_DATA) {
+      window.setTimeout(() => {
+        setLogBetStatus(`Bet logged (demo): ${arb.matchup}`);
+        window.setTimeout(() => setLogBetStatus(null), 3000);
+      }, 300);
+      return;
+    }
     try {
       const res = await fetch("/api/bets/from-arb", {
         method: "POST",
@@ -158,10 +178,19 @@ export function ArbitrageScanner({ showBetLog = false }: { showBetLog?: boolean 
     <>
      <header className="mb-8 border-b border-zinc-800 pb-6">
        <p className="mt-1 max-w-2xl text-sm leading-relaxed text-zinc-400">
-         Auto-refreshes odds on an interval. Use{" "}
-         <strong className="font-medium text-zinc-300">Full refresh</strong>{" "}
-         to save to Neon and run Telegram alerts. Auto-refresh uses light mode
-         (display only, ~4 API credits per tick).
+         {OPPORTUNITIES_USE_DEMO_DATA ? (
+           <>
+             Showing <strong className="font-medium text-zinc-300">sample opportunities</strong>{" "}
+             for preview. Stake and ROI filters still apply to the demo list.
+           </>
+         ) : (
+           <>
+             Auto-refreshes odds on an interval. Use{" "}
+             <strong className="font-medium text-zinc-300">Full refresh</strong>{" "}
+             to save to Neon and run Telegram alerts. Auto-refresh uses light mode
+             (display only, ~4 API credits per tick).
+           </>
+         )}
        </p>
 
        <div className="mt-6 flex flex-wrap items-end gap-4">
@@ -214,7 +243,7 @@ export function ArbitrageScanner({ showBetLog = false }: { showBetLog?: boolean 
            disabled={loading}
            className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-500 disabled:opacity-50"
          >
-           {loading ? "Refreshing…" : "Full refresh"}
+           {loading ? "Refreshing…" : OPPORTUNITIES_USE_DEMO_DATA ? "Refresh demo" : "Full refresh"}
          </button>
        </div>
 
@@ -238,10 +267,14 @@ export function ArbitrageScanner({ showBetLog = false }: { showBetLog?: boolean 
              </time>
            </span>
          )}
-         {loading && <span className="text-emerald-500/80">Fetching…</span>}
+         {loading && (
+           <span className="text-emerald-500/80">
+             {OPPORTUNITIES_USE_DEMO_DATA ? "Updating demo…" : "Fetching…"}
+           </span>
+         )}
        </div>
 
-       {data?.error && (
+       {data?.error && !OPPORTUNITIES_USE_DEMO_DATA && (
          <p className="mt-4 rounded-lg border border-amber-900/60 bg-amber-950/40 px-4 py-3 text-sm text-amber-200">
            {data.error}
          </p>
@@ -266,7 +299,9 @@ export function ArbitrageScanner({ showBetLog = false }: { showBetLog?: boolean 
          <p className="mt-6 rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-8 text-center text-sm text-zinc-400">
            {allArbs.length > 0 && minRoi > 0
              ? `${allArbs.length} arb(s) found but none meet ROI ≥ ${minRoi}%. Lower the filter or refresh.`
-             : `No cross-book arb on this snapshot (${games.length} games). Arbs are rare — try full refresh after line moves.`}
+             : OPPORTUNITIES_USE_DEMO_DATA
+               ? "No demo arbs match your ROI filter. Lower Min ROI % or refresh."
+               : `No cross-book arb on this snapshot (${games.length} games). Arbs are rare — try full refresh after line moves.`}
          </p>
        )}
 
@@ -438,7 +473,7 @@ export function ArbitrageScanner({ showBetLog = false }: { showBetLog?: boolean 
          </table>
        </div>
 
-       {!loading && games.length === 0 && !data?.error && (
+       {!loading && games.length === 0 && !data?.error && !OPPORTUNITIES_USE_DEMO_DATA && (
          <p className="mt-6 text-center text-sm text-zinc-500">
            No games returned. Check API key and league schedule.
          </p>
